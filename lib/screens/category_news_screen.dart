@@ -50,6 +50,7 @@ class _CategoryNewsScreenState extends State<CategoryNewsScreen> {
         backgroundColor: Colors.lightBlue,
       ),
       body: Container(
+        margin: EdgeInsets.all(12),
         child: ListView.builder(
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
