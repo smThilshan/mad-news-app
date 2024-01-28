@@ -52,7 +52,7 @@ class _CategoryNewsScreenState extends State<CategoryNewsScreen> {
       body: Container(
         child: ListView.builder(
             shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             itemCount: categories.length,
             itemBuilder: (context, index) {
               return ShowCategory(

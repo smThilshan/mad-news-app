@@ -28,7 +28,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Search Contacts",
+          "Search ",
           style: TextStyle(
             fontFamily: 'OpenSans',
             fontWeight: FontWeight.w500,
@@ -43,6 +43,40 @@ class _SearchScreenState extends State<SearchScreen> {
               });
             },
           ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _searchController,
+              onChanged: (query) {
+                // Trigger search as the user types
+
+                // _performSearch(context, query);
+              },
+              decoration: InputDecoration(
+                labelStyle: const TextStyle(color: Colors.black),
+                fillColor: Colors.white,
+                labelText: "Search",
+                contentPadding: const EdgeInsets.symmetric(
+                    vertical: 14.0,
+                    horizontal: 12.0), // Adjust the padding as needed
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.blue.shade400),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.blue.shade400),
+                ),
+              ),
+            ),
+          ),
+          // Expanded(
+          //   child: _buildSearchResults(context),
+          // ),
         ],
       ),
     );

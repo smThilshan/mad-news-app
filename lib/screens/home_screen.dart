@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/models/article_model.dart';
 import 'package:news_app/models/category_model.dart';
 import 'package:news_app/screens/article_view_screen.dart';
+import 'package:news_app/screens/search_screen.dart';
 import 'package:news_app/services/data.dart';
 import 'package:news_app/services/news.dart';
 import 'package:news_app/widgets/category_slider_widget.dart';
@@ -66,22 +67,27 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: MyIconButton(
-              btnIcon: Icon(Icons.search),
+              btnIcon: const Icon(Icons.search),
               btnText: "Search ",
-              onClick: () {},
+              onClick: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
+              },
             ),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Expanded(
             child: ListView.builder(
                 shrinkWrap: true,
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 itemCount: articles.length,
                 itemBuilder: (context, index) {
                   return NewsWidget(
