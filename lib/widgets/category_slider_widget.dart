@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/screens/category_news_screen.dart';
 
 import '../models/category_model.dart';
 
@@ -22,7 +23,13 @@ class CategorySlider extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: GestureDetector(
             onTap: () {
-              print("Category ${categories[index]?.categoryName} selected");
+              // print("Category ${categories[index]?.categoryName} selected");-
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CategoryNewsScreen(
+                          categoryName:
+                              categories[index].categoryName ?? "general")));
             },
             child: Container(
               padding: const EdgeInsets.all(8),
@@ -32,7 +39,7 @@ class CategorySlider extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  categories[index]?.categoryName ?? "DefaultCategoryName",
+                  categories[index]?.categoryName ?? "entertainment",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,

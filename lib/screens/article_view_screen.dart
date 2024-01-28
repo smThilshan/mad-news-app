@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class ArticleView extends StatefulWidget {
+class ArticleViewScreen extends StatefulWidget {
+  static const routeName = 'article_view_screen';
   String blogUrl;
-  ArticleView({required this.blogUrl, super.key});
+  ArticleViewScreen({required this.blogUrl, super.key});
 
   @override
-  State<ArticleView> createState() => _ArticleViewState();
+  State<ArticleViewScreen> createState() => _ArticleViewScreenState();
 }
 
-class _ArticleViewState extends State<ArticleView> {
+class _ArticleViewScreenState extends State<ArticleViewScreen> {
   final controller = WebViewController();
 
   @override
@@ -20,11 +21,23 @@ class _ArticleViewState extends State<ArticleView> {
         .loadRequest(Uri.parse(widget.blogUrl)); // Access blogUrl from widget
   }
 
-  // ..setJavaScriptMode(JavaScriptMode.disabled)
-  // ..loadRequest(Uri.parse(blogUrl));
-
   @override
   Widget build(BuildContext context) {
-    return Container(child: WebViewWidget(controller: controller));
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "News App",
+          style: TextStyle(
+            fontFamily: 'OpenSans',
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.lightBlue,
+      ),
+      body: Container(child: WebViewWidget(controller: controller)),
+    );
   }
 }

@@ -10,6 +10,7 @@ import 'package:news_app/widgets/my_icon_button.dart';
 import 'package:news_app/widgets/news_widget.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const routeName = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -77,30 +78,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(height: 12),
-
           Expanded(
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  physics: ClampingScrollPhysics(),
-                  itemCount: articles.length,
-                  itemBuilder: (context, index) {
-                    return NewsWidget(
-                        url: articles[index].url!,
-                        title: articles[index].title!,
-                        imageUrl: articles[index].urlToImage!,
-                        description: articles[index].description!);
-                  })),
-
-          // ListView.builder(
-          //   itemCount:
-          //       newsList.length, // Assuming you have a list of news items
-          //   itemBuilder: (_, index) {
-          //     return NewsWidget(
-          //       imageUrl: newsList[index].imageUrl,
-          //       headline: newsList[index].headline,
-          //     );
-          //   },
-          // )
+            child: ListView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                itemCount: articles.length,
+                itemBuilder: (context, index) {
+                  return NewsWidget(
+                      url: articles[index].url!,
+                      title: articles[index].title!,
+                      imageUrl: articles[index].urlToImage!,
+                      description: articles[index].description!);
+                }),
+          ),
         ],
       ),
     );

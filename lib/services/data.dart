@@ -4,11 +4,11 @@ List<CategoryModel> getCategories() {
   List<CategoryModel> category = [];
   CategoryModel categoryModel = new CategoryModel();
 
-  categoryModel.categoryName = "  All  ";
+  categoryModel.categoryName = "All";
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
-  categoryModel.categoryName = "Entertainment";
+  categoryModel.categoryName = "entertainment";
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 

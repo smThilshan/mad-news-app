@@ -10,20 +10,16 @@ class NewsWidget extends StatelessWidget {
       required this.description,
       required this.url});
 
-  // final String headline;
-
-  // NewsWidget({required this.imageUrl, required this.headline});
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: GestureDetector(
         onTap: () {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ArticleView(blogUrl: url)));
+                  builder: (context) => ArticleViewScreen(blogUrl: url)));
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,10 +33,10 @@ class NewsWidget extends StatelessWidget {
                 imageUrl: imageUrl,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
